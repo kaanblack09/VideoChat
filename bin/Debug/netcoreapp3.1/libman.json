@@ -1,0 +1,108 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/lib/jquery/",
+      "files": [
+        "core.js",
+        "jquery.js",
+        "jquery.min.js",
+        "jquery.min.map",
+        "jquery.slim.js",
+        "jquery.slim.min.js",
+        "jquery.slim.min.map"
+      ]
+    },
+    {
+      "library": "twitter-bootstrap@4.4.1",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "icomoon@1.0.0",
+      "destination": "wwwroot/lib/icomoon/",
+      "files": [
+        "demo.html",
+        "package.json",
+        "Read Me.txt",
+        "selection.json",
+        "style.css",
+        "style.min.css",
+        "demo-files/demo.css",
+        "demo-files/demo.js",
+        "demo-files/demo.min.css",
+        "demo-files/demo.min.js",
+        "fonts/icomoon.eot",
+        "fonts/icomoon.svg",
+        "fonts/icomoon.ttf",
+        "fonts/icomoon.woff"
+      ]
+    },
+    {
+      "library": "adapterjs@0.15.4",
+      "destination": "wwwroot/lib/adapterjs/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "alertifyjs@1.13.1",
+      "destination": "wwwroot/lib/alertifyjs/",
+      "files": [
+        ".jshintrc",
+        "CONTRIBUTING.md",
+        "Gruntfile.js",
+        "LICENSE",
+        "package.json",
+        "README.md",
+        "RELEASENOTES.md",
+        "build/alertify.js",
+        "build/alertify.min.js",
+        "build/alertifyjs.zip",
+        "build/css/themes/bootstrap.css",
+        "build/css/themes/bootstrap.min.css",
+        "build/css/themes/bootstrap.rtl.css",
+        "build/css/themes/bootstrap.rtl.min.css",
+        "build/css/themes/default.css",
+        "build/css/themes/default.min.css",
+        "build/css/themes/default.rtl.css",
+        "build/css/themes/default.rtl.min.css",
+        "build/css/themes/semantic.css",
+        "build/css/themes/semantic.min.css",
+        "build/css/themes/semantic.rtl.css",
+        "build/css/themes/semantic.rtl.min.css",
+        "build/css/alertify.css",
+        "build/css/alertify.min.css",
+        "build/css/alertify.rtl.css",
+        "build/css/alertify.rtl.min.css",
+        "src/js/alert.js",
+        "src/js/alertify.js",
+        "src/js/confirm.js",
+        "src/js/event.js",
+        "src/js/intro.js",
+        "src/js/notifier.js",
+        "src/js/outro.js",
+        "src/js/prompt.js",
+        "src/js/dialog/actions.js",
+        "src/js/dialog/commands.js",
+        "src/js/dialog/dialog.js",
+        "src/js/dialog/events.js",
+        "src/js/dialog/focus.js",
+        "src/js/dialog/intro.js",
+        "src/js/dialog/move.js",
+        "src/js/dialog/outro.js",
+        "src/js/dialog/resize.js",
+        "src/js/dialog/transition.js",
+        "src/less/themes/bootstrap.less",
+        "src/less/themes/default.less",
+        "src/less/themes/semantic.less",
+        "src/less/alertify.less"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@3.1.0",
+      "destination": "wwwroot/lib/signalr/"
+    }
+  ]
+}

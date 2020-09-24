@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Create Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Create";
+}
+@model ClassRoom
+<link type="text/css" rel="stylesheet" href="~/css/create.css" />
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="left-container">
+                    <div class="text-container">
+                        <h2>Cuộc gọi video chất lượng.</h2>
+                        <h2>Giờ đây miễn phí cho tất cả mọi người</h2>
+                        <p>Chúng tôi tạo ra dịch vụ này để cung cấp việc học tập miễn phí cho tất cả mọi người</p>
+                    </div>
+                    <div class="button-container">
+                        <a href="#" onclick="document.getElementById('id01').style.display='block'">
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-video"></i>Bắt Đầu
+                            </button>
+                        </a>
+                        <a href="#" onclick="document.getElementById('id02').style.display='block'">
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-file-powerpoint"></i>Vào Lớp
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="right-container">
+                    <img src="~/img/pexels-fauxels-3183197 (1).jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="id01" class="modal">
+    <div class="cont-create">
+        <form class="modal-content" method="post" asp-action="Create" asp-controller="Home">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="cont-center">
+                <div class="imgcontainer">
+                    <h2 class="title">Tạo Lớp Học Mới</h2>
+                </div>
+                <div class="input-div one">
+                    <div class="i"></div>
+                    <div class="div">
+                        <h5>Ma Phong</h5>
+                        <input type="text" class="input" asp-for="ClassID">
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i"></div>
+                    <div class="div">
+                        <h5>Tên Lớp</h5>
+                        <input type="text" class="input" asp-for="ClassName">
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="i"></div>
+                    <div class="div">
+                        <h5>Topic</h5>
+                        <input type="text" class="input" asp-for="Topic">
+                    </div>
+                </div>
+                <div class="button-div">
+                    <input type="submit" class="btn btn-primary">
+                    <input type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-primary" value="Cancel"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="id02" class="modal">
+    <div class="cont-create">
+        <form class="modal-content" method="post" asp-action="Join" asp-controller="Home">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="cont-center">
+                <div class="imgcontainer">
+                    <h2 class="title">Vào Lớp Học</h2>
+                </div>
+                <div class="input-div one">
+                    <div class="i"></div>
+                    <div class="div">
+                        <h5>Ma Phong</h5>
+                        <input type="text" class="input" asp-for="ClassID">
+                    </div>
+                </div>
+                <div class="button-div">
+                    <input type="submit" class="btn btn-primary" value="Submit"/>
+                    <input type="button" onclick="document.getElementById('id02').style.display='none'" class="btn btn-primary" value="Cancel" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+}

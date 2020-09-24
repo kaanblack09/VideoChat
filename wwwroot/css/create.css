@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.left-container{
+    display: inline-flex;
+    flex-basis: 35rem;
+    flex-direction: column;
+    flex-shrink: 1;
+    max-width: 35rem;
+    padding: 1em 3em;
+    margin-top:40%;
+}
+.left-container .button-container a button{
+    padding:8px 35px 8px 35px;
+    margin-top: 20px;
+}
+.left-container .button-container a{
+    color: white;
+    text-decoration: none;
+}
+.right-container img{
+    overflow: hidden;
+    position: relative;
+    width: 600px;
+    border-radius: 5px;
+    height: 80%;
+    background: #fff;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.30);
+    margin: 30% 0 0 50px;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+    width: 70%; 
+}
+.cont-center{
+    position: relative;
+    width: 600px;
+    height: auto;
+    background: #fff;
+    margin:15px 50px 50px 19%;
+}
+.imgcontainer{
+    text-align: left;
+    margin: 10px 15px 12px 15px;
+    position: relative;
+}
+.cont-create{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+    text-align: center;
+    width: 60%;
+    height: auto;
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border-radius: 15px;
+    border: none;
+}
+.cont-create .input-div{
+	position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+.cont-create .input-div.one{
+	margin-top: 0;
+}
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #38d39f;
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: #38d39f;
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+.button-div a button{
+    padding:  5px 30px;
+}
