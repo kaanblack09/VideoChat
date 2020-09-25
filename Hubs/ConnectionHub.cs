@@ -9,13 +9,11 @@ namespace VideoChat.Hubs
 {
     public class ConnectionHub : Hub<IConnectionHub>
     {
-        private readonly List<IdentityUser> _Users;
         private readonly List<Room> _Rooms;
         //private readonly List<CallOffer> _CallOffers;
         //private List<User> guess = new List<User>();
         public ConnectionHub(List<IdentityUser> users, List<Room> rooms)
         {
-            _Users = users;
             _Rooms = rooms;
         }
 
@@ -23,7 +21,6 @@ namespace VideoChat.Hubs
         {
             // Add the new user
             IdentityUser usr = new IdentityUser { UserName = username, ConnectionID = Context.ConnectionId };
-            _Users.Add(usr);
             ClassRoom clr = new VideoChatDBContext().ClassRoom.Where(u => u.ClassID == classid).SingleOrDefault();
             Room rm = GetRoomByClassID(clr);
             if (rm == null)
@@ -125,7 +122,7 @@ namespace VideoChat.Hubs
         public async Task HangUp()
         {
             Room callingRoom = GetRoomByConnectionID(Context.ConnectionId);
-            IdentityUser callingUser = _Users.SingleOrDefault(u => u.ConnectionID == Context.ConnectionId);
+            IdentityUser callingUser = callingRoom.UserCall.SingleOrDefault(u => u.ConnectionID == Context.ConnectionId);
             // if room is mine . Remove all user in call
             if (callingRoom.UserCall.Count == 1)
             {
@@ -159,7 +156,7 @@ namespace VideoChat.Hubs
         {
             Room callingRoom = GetRoomByConnectionID(Context.ConnectionId);
             IdentityUser callingUser = callingRoom.UserCall.SingleOrDefault(u => u.ConnectionID == Context.ConnectionId);
-            IdentityUser targetUser = _Users.SingleOrDefault(u => u.ConnectionID == targetConnectionId);
+            IdentityUser targetUser = callingRoom.UserCall.SingleOrDefault(u => u.ConnectionID == targetConnectionId);
             // Make sure both users are valid
             if (callingUser == null || targetUser == null)
             {

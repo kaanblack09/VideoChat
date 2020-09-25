@@ -6,7 +6,8 @@ var wsconn = new signalR.HubConnectionBuilder().withUrl("/ConnectionHub").build(
     //.configureLogging(signalR.LogLevel.None).build();
 
 var peerConnectionConfig = { "iceServers": [{ "url": "stun:stun.l.google.com:19302" }] };
-
+let localStreamCamera;
+let localStreamScreen;
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Ready for Hub");
     initializeSignalR();
@@ -30,10 +31,12 @@ const attachMediaStream = (e) => {
     if (partnerScreen.srcObject == null) {
         console.log(e.streams[0].getTracks());
         partnerScreen.srcObject = e.streams[0];
+        localStreamScreen = e.streams[0];
     }
     else {
         console.log(e.streams[0].getTracks());
         partnerCamera.srcObject = e.streams[0];
+        localStreamCamera = e.streams[0];
     }
 };
 
@@ -301,9 +304,19 @@ document.querySelector("#hangUp").addEventListener("click", () => {
     console.log("Hang up !");
     wsconn.invoke('hangUp');
     closeAllConnections();
+    document.querySelector("#screen").srcObject = null;
+    document.querySelector("#camera").srcObject = null;
 });
-
-
+document.querySelector("#mutevideo").addEventListener("click", () => {
+    if (localStreamCamera != null) {
+        localStreamCamera.getTracks()[0].enabled = !(localStreamCamera.getTracks()[0].enabled);
+        localStreamScreen.getTracks()[0].enabled = !(localStreamScreen.getTracks()[0].enabled);
+    }
+    else {
+        localcamera.getTracks()[0].enabled = !(localcamera.getTracks()[0].enabled);
+        localscreen.getTracks()[0].enabled = !(localscreen.getTracks()[0].enabled);
+    }
+});
 const errorHandler = (error) => {
     if (error.message)
         console.log('Error Occurred - Error Info: ' + JSON.stringify(error.message));
